@@ -1,621 +1,41 @@
-@import "./utils/variables";
+// Подключение Modern Normilize
+@import "./utils/modern-normalize";
 
-/* Общая стилизация */
-body {
-  color: var(--primary-text-color);
-  background-color: var(--main-light-color);
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 1.71;
-  letter-spacing: 0.03em;
-}
+// Подключение переменных и шрифтов
+@import "./common/variables";
 
-a {
-  text-decoration: none;
-}
+// Общая стилизация
+@import "./common/common-styles";
 
-img, svg, a {
-  display: block;
-}
+// Контейнеры
+@import "./components/containers";
 
-h1, h2, h3, p {
-  padding: 0px;
-  margin: 0px;
-}
+// Логотипы
+@import "./components/logos";
 
-.container {
-  width: 1200px;
+// Кнопки
+@import "./components/buttons";
 
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+// Заголовок страницы с меню навигации
+@import "./components/header";
 
-  /* Фон для тестирования размеров контейнера */
-  /* background-color: wheat; */
-}
+// Герой
+@import "./components/hero";
 
-.section {
-  padding-top: 94px;
-  padding-bottom: 94px;
-}
+// Особенности и преимущества
+@import "./components/features";
 
-.section.no-padding-bottom {
-  padding-bottom: 0px;
-}
+// Чем мы занимаемся
+@import "./components/our-works";
 
-/* Прячем заголовки */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  overflow: hidden;
-}
+// Наша команда
+@import "./components/team";
 
-/* Логотип */
-.logo {
-  display: block;
-  font-family: 'Raleway', sans-serif;
-  font-weight: 700;
-  font-size: 26px;
-  line-height: 1.19;
-}
+// Постоянные клиенты
+@import "./components/clients";
 
-/* Логотип на светлом фоне */
-.logo .web-on-light {
-  color: var(--accent-color);
-
-  transition: color var(--timing) var(--timing-function);
-}
-.logo:hover .web-on-light,
-.logo:focus .web-on-light {
-  color: var(--main-black-color);
-}
-.logo .studio-on-light {
-  color: var(--main-black-color);
-
-  transition: color var(--timing) var(--timing-function);
-}
-.logo:hover .studio-on-light,
-.logo:focus .studio-on-light {
-  color: var(--accent-color);
-}
-
-
-/* Логотип на тёмном фоне */
-.logo .web-on-dark {
-  color: var(--accent-color);
-
-  transition: color var(--timing) var(--timing-function);
-}
-.logo:hover .web-on-dark,
-.logo:focus .web-on-dark {
-  color: var(--main-light-color);
-}
-.logo .studio-on-dark {
-  color: var(--main-light-color);
-}
-.logo:hover .studio-on-dark,
-.logo:focus .studio-on-dark {
-  color: var(--accent-color);
-
-  transition: color var(--timing) var(--timing-function);
-}
-
-/* Список без буллетов */
-.list {
-  padding: 0px;
-  margin: 0px;
-  list-style: none;
-}
-
-/* Заголовок страницы с меню навигации */
-header {
-  border-bottom: 1px solid var(--main-nav-stroke-color);
-}
-
-.main-nav {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.site-nav {
-  display: flex;
-  margin-right: auto;
-}
-
-.site-nav .logo {
-  margin-right: 93px;
-  padding-top: 24px;
-  padding-bottom: 25px;
-}
-
-.site-links {
-  display: flex;
-}
-
-.site-links .link {
-  display: block;
-  position: relative;
-
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  color: var(--primary-text-color);
-
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-
-  transition: color var(--timing) var(--timing-function);
-}
-
-.site-links .item:not(:last-child) {
-  margin-right: 50px;
-}
-
-.site-links .link:hover,
-.site-links .link:focus,
-.site-links .link.current,
-.contacts-top .link:hover,
-.contacts-top .link:focus {
-  color: var(--accent-color);
-}
-
-.site-links .link.current:hover,
-.site-links .link.current:focus {
-  color: var(--primary-text-color);
-}
-
-.site-links .link.current::after {
-  content: "";
-  display: block;
-  position: absolute;
-
-  bottom: -1px;
-  width: 100%;
-  height: 4px;
-  border-radius: 2px;
-
-  background-color: var(--accent-color);
-
-  transition: background-color var(--timing) var(--timing-function);
-}
-
-.site-links .link.current:hover::after {
-  background-color: var(--primary-text-color);
-}
-
-.contacts-top {
-  display: flex;
-}
-
-.contacts-top .link {
-  display: flex;
-  align-items: center;
-
-  padding-top: 32px;
-  padding-bottom: 32px;
-
-  color: var(--secondary-text-color);
-
-  font-weight: 500;
-  line-height: 1.14;
-  letter-spacing: 0.02em;
-
-  transition: color var(--timing) var(--timing-function);
-}
-
-.contacts-top .item:not(:last-child) {
-  margin-right: 50px;
-}
-
-.contacts-top svg {
-  margin-right: 10px;
-
-  fill: currentColor;
-}
-
-/* Заставка */
-.hero {
-  max-width: 1600px;
-  height: 600px;
-  margin-left: auto;
-  margin-right: auto;
-  padding-top: 200px;
-
-  background-color: var(--hero-background-color);
-  background-image: linear-gradient(var(--hero-overlay-color), var(--hero-overlay-color)),
-    url("../images/hero_img.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-
-  text-align: center;
-}
-
-.hero-title {
-  color: var(--main-light-color);
-
-  margin-top: 0px;
-  margin-bottom: 30px;
-
-  font-weight: 900;
-  font-size: 44px;
-  line-height: 1.36;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-
-.hero-button,
-.footer .subscription-button,
-.modal .submit-button {
-  display: inline-block;
-
-  min-width: 200px;
-  border: 0px;
-  border-radius: 4px;
-  padding: 10px 34px;
-
-  text-align: center;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 1.87;
-  text-align: center;
-  letter-spacing: 0.06em;
-
-  color: var(--main-light-color);
-  background-color: var(--accent-color);
-  box-shadow: 0px 4px 4px var(--button-shadow-color);
-
-  transition: color var(--timing) var(--timing-function),
-    background-color var(--timing) var(--timing-function);
-}
-
-.hero-button:hover,
-.hero-button:focus,
-.footer .subscription-button:hover,
-.footer .subscription-button:focus,
-.modal .submit-button:hover,
-.modal .submit-button:focus {
-  color: var(--main-black-color);
-  background-color: var(--main-light-gray-color);
-}
-
-/* Заголовки секций */
-.section-title {
-  margin-top: 0px;
-  margin-bottom: 50px;
-
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 1.17;
-  text-align: center;
-}
-
-/* Особенности и преимущества */
-.features p {
-  color: var(--secondary-text-color);
-
-  margin-top: 0px;
-}
-
-.features.list {
-  display: flex;
-}
-
-.features.list li {
-  width: calc((100% - 90px) / 4);
-}
-
-.features.list li:not(:last-child) {
-  margin-right: 30px;
-}
-
-.features.list h3 {
-  margin-top: 0px;
-  margin-bottom: 10px;
-
-  font-weight: 700;
-  line-height: 1.14;
-  text-transform: uppercase;
-}
-
-.features.list div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  height: 120px;
-  margin-bottom: 30px;
-
-  background-color: var(--main-light-gray-color);
-}
-
-/* Чем мы занимаемся */
-.our-works .list {
-  display: flex;
-}
-
-.our-works .list li {
-  position: relative;
-}
-
-.our-works .list .overlay {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  bottom: 0px;
-  width: 100%;
-  height: 70px;
-
-  background-color: var(--our-works-overlay-color);
-}
-
-.our-works .list h3 {
-  font-weight: 700;
-  line-height: 1.14;
-  text-transform: uppercase;
-
-  color: var(--main-light-color);
-}
-
-.our-works .list li:not(:last-child) {
-  margin-right: 30px;
-}
-
-/* Наша команда */
-.team {
-  background: var(--main-light-gray-color);
-}
-
-.teammates.list {
-  display: flex;
-}
-
-.teammates.list > li {
-  border-radius: 0px 0px 4px 4px;
-
-  background-color: var(--main-light-color);
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
-    0px 1px 1px rgba(0, 0, 0, 0.14), 
-    0px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.teammates.list > li:not(:last-child) {
-  margin-right: 30px;
-}
-
-.teammates.list h3 {
-  margin-top: 30px;
-  margin-bottom: 10px;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.19;
-  text-align: center;
-}
-
-.teammates.list p {
-  color: var(--secondary-text-color);
-
-  margin-top: 0px;
-  margin-bottom: 16px;
-
-  font-size: 16px;
-  line-height: 1.19;
-  text-align: center;
-}
-
-.team .socials {
-  display: flex;
-  justify-content: center;
-
-  margin-bottom: 30px;
-}
-
-.team .socials .list {
-  display: flex;
-}
-
-.team .socials li:not(:last-child) {
-  margin-right: 10px;
-}
-
-.team .socials a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-
-  fill: var(--clients-and-socials-color);
-  background-color: var(--main-light-color);
-
-  transition: fill var(--timing) var(--timing-function),
-    background-color var(--timing) var(--timing-function);
-}
-
-.team .socials a:hover, 
-.team .socials a:focus {
-  fill: var(--main-light-color);
-  background-color: var(--accent-color);
-}
-
-/* Постоянные клиенты */
-
-.clients .list {
-  display: flex;
-}
-
-.clients .list li:not(:last-child) {
-  margin-right: 30px;
-}
-
-.clients .list li {
-  display: flex;
-
-  width: calc((100% - 150px) / 6);
-}
-
-.clients .list a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 100%;
-  height: 90px;
-
-  fill: var(--clients-and-socials-color);
-  border: 1px solid var(--clients-and-socials-color);
-  border-radius: 4px;
-
-  transition: fill var(--timing) var(--timing-function),
-    border var(--timing) var(--timing-function);
-}
-
-.clients .list a:hover,
-.clients .list a:focus {
-  fill: var(--accent-color);
-  border: 1px solid var(--accent-color);
-}
-
-/* Подвал */
-.footer {
-  background-color: var(--main-dark-gray-color);
-}
-
-.footer .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  height: 252px;
-}
-
-.footer .info {
-  margin-right: 86px;
-}
-
-.footer .logo {
-  margin-top: 40px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-}
-
-.footer address{
-  color: var(--main-light-color);
-  font-style: normal;
-}
-
-.contacts-bottom li {
-  margin-top: 9px;
-}
-
-.contacts-bottom a {
-  color: var(--bottom-contacts-text-color);
-
-  transition: color var(--timing) var(--timing-function);
-}
-
-.contacts-bottom a:hover,
-.contacts-bottom a:focus {
-  color: var(--accent-color-trasparent);
-}
-
-.footer .socials {
-  margin-right: auto;
-}
-
-.footer .socials .list {
-  display: flex;
-}
-
-.footer .socials li:not(:last-child) {
-  margin-right: 10px;
-}
-
-.footer .socials a {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-
-  fill: var(--main-light-color);
-  background-color: var(--main-light-color-transparent);
-
-  transition: background-color var(--timing) var(--timing-function);
-}
-
-.footer .socials a:hover, 
-.footer .socials a:focus {
-  background-color: var(--accent-color);
-}
-
-.footer .socials p,
-.footer .subscription p {
-  margin-bottom: 20px;
-
-  color: var(--main-light-color);
-
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 1.14;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-}
-
-.footer .subscription form {
-  display: flex;
-}
-
-.footer .subscription input {
-  width: 358px;
-  height: 50px;
-  margin-right: 12px;
-  padding: 15px 16px;
-
-  font-size: 16px;
-  line-height: 1.25;
-
-  color: var(--bottom-contacts-text-color);
-  background-color: transparent;
-  border: 1px solid var(--bottom-subscription-border-color);
-  border-radius: 4px;
-  box-shadow: 0px 4px 4px var(--button-shadow-color);
-
-  transition: color var(--timing) var(--timing-function),
-    border var(--timing) var(--timing-function);
-}
-
-.footer .subscription input:hover,
-.footer .subscription input:focus {
-  color: var(--main-light-color);
-  border: 1px solid var(--accent-color);
-}
-
-.footer .subscription button {
-  display: flex;
-  align-items: center;
-}
-
-.footer .subscription button svg {
-  margin-left: 10px;
-
-  fill: currentColor;
-}
+// Подвал
+@import "./components/footer";
 
 /* Модальное окно */
 .backdrop {
@@ -625,9 +45,9 @@ header {
   width: 100%;
   height: 100%;
 
-  background-color: var(--backdrop-black-color);
+  background-color: $backdrop-black-color;
   opacity: 1;
-  transition: opacity var(--timing) var(--timing-function);
+  transition: opacity $timing $timing-function;
 }
 
 .backdrop.is-hidden {
@@ -639,8 +59,8 @@ header {
 .backdrop.is-hidden .modal {
   transform: translate(-50%, -50%) scale(0.5);
   opacity: 0;
-  transition: transform var(--timing) var(--timing-function),
-    opacity var(--timing) var(--timing-function);
+  transition: transform $timing $timing-function,
+    opacity $timing $timing-function;
 }
 
 .modal {
@@ -656,36 +76,11 @@ header {
 
   text-align: center;
 
-  background-color: var(--main-light-color);
+  background-color: $main-light-color;
   opacity: 1;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 
     0px 1px 1px rgba(0, 0, 0, 0.14), 
     0px 2px 1px rgba(0, 0, 0, 0.2);
-}
-
-.modal .close-button {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  top: 8px;
-  right: 8px;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-
-  fill: var(--main-black-color);
-  background-color: var(--main-light-color);
-  border: 1px solid var(--modal-close-button-border-color);
-  transition: fill var(--timing) var(--timing-function);
-}
-
-.modal .close-button:hover,
-.modal .close-button:focus {
-  fill: var(--accent-color);
-  /* Удаляем стандартный аутлайн чтоб виден был свой в Chrome */
-  outline: 0;
 }
 
 .modal .header {
@@ -710,7 +105,7 @@ header {
   font-size: 12px;
   line-height: 1.17;
 
-  color: var(--secondary-text-color);
+  color: $secondary-text-color;
 }
 
 .modal .input-field {
@@ -724,15 +119,15 @@ header {
   left: 12px;
   transform: translateY(-50%);
 
-  fill: var(--main-black-color);
-  transition: fill var(--timing) var(--timing-function);
+  fill: $main-black-color;
+  transition: fill $timing $timing-function;
   /* Делаем иконки прозрачными для ховера в Chrome */
   pointer-events: none;
 }
 
 .modal .input-field input:hover + .icon,
 .modal .input-field input:focus + .icon {
-  fill: var(--accent-color);
+  fill: $accent-color;
 }
 
 .modal .form-fields input,
@@ -744,11 +139,11 @@ header {
   letter-spacing: 0.01em;
 
   background-color: transparent;
-  border: 1px solid var(--modal-form-fields-bordrer-color);
+  border: 1px solid $modal-form-fields-bordrer-color;
   border-radius: 4px;
 
-  transition: color var(--timing) var(--timing-function),
-    border var(--timing) var(--timing-function);
+  transition: color $timing $timing-function,
+    border $timing $timing-function;
 }
 
 .modal .form-fields input {
@@ -767,7 +162,7 @@ header {
 .modal .form-fields input:focus-within,
 .modal .form-fields textarea:hover,
 .modal .form-fields textarea:focus {
-  border: 1px solid var(--accent-color);
+  border: 1px solid $accent-color;
   /* Удаляем стандартный аутлайн чтоб виден был свой в Chrome */
   outline: 0;
 }
@@ -793,36 +188,36 @@ header {
   border-radius: 2px;
 
   background-origin: border-box;
-  border: 2px solid var(--primary-text-color);
+  border: 2px solid $primary-text-color;
   background-color: transparent;
   fill: transparent;
 
-  transition: border-color var(--timing) var(--timing-function),
-    background-color var(--timing) var(--timing-function),
-    fill var(--timing) var(--timing-function),
-    box-shadow var(--timing) var(--timing-function);
+  transition: border-color $timing $timing-function,
+    background-color $timing $timing-function,
+    fill $timing $timing-function,
+    box-shadow $timing $timing-function;
 }
 
 .modal .check label:hover .svg-check,
 .modal .check input:focus + .svg-check {
-  box-shadow: 0 0 0 4px var(--accent-color-trasparent);
+  box-shadow: 0 0 0 4px $accent-color-trasparent;
 }
 
 .modal .check a {
-  color: var(--accent-color);
+  color: $accent-color;
   text-decoration: underline;
   margin-left: 7px;
 }
 
 .modal .check input:checked + .svg-check {
-  border-color: var(--accent-color);
-  background-color: var(--accent-color);
-  fill: var(--main-light-color);
+  border-color: $accent-color;
+  background-color: $accent-color;
+  fill: $main-light-color;
 }
 
 /* Портфолио */
 .portfolio h1 {
-  color: var(--main-black-color);
+  color: $main-black-color;
   font-weight: 900;
   font-size: 44px;
   line-height: 1.36;
@@ -846,40 +241,6 @@ header {
   margin-right: 0px;
 }
 
-.content-selector button {
-  display: block;
-
-  height: 38px;
-  border: 0px;
-  border-radius: 4px;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 1.625;
-  text-align: center;
-  letter-spacing: 0.03em;
-
-  padding: 0px 22px;
-
-  color: var(--primary-text-color);
-  background-color: var(--main-light-gray-color);
-  cursor: pointer;
-
-  transition: color var(--timing) var(--timing-function),
-    background-color var(--timing) var(--timing-function),
-    box-shadow var(--timing) var(--timing-function);
-}
-
-.content-selector button:hover,
-.content-selector button:focus {
-  color: var(--main-light-color);
-  background-color: var(--accent-color);
-
-  box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 
-    0px 1px 2px rgba(0, 0, 0, 0.08), 
-    0px 2px 2px rgba(0, 0, 0, 0.12);
-}
-
 /* Выполненные проекты */
 .projects.list {
   display: flex;
@@ -891,11 +252,11 @@ header {
   margin-right: 30px;
   margin-bottom: 30px;
 
-  background-color: var(--main-light-color);
+  background-color: $main-light-color;
 }
 
 .projects.list .project a {
-  transition: box-shadow var(--timing) var(--timing-function);
+  transition: box-shadow $timing $timing-function;
 }
 
 .projects.list .project a:hover,
@@ -914,9 +275,9 @@ header {
 }
 
 .projects.list .project-content {
-  border-right: 1px solid var(--portfolio-stroke-color);
-  border-bottom: 1px solid var(--portfolio-stroke-color);
-  border-left: 1px solid var(--portfolio-stroke-color);
+  border-right: 1px solid $portfolio-stroke-color;
+  border-bottom: 1px solid $portfolio-stroke-color;
+  border-left: 1px solid $portfolio-stroke-color;
   padding: 20px 24px;
 }
 
@@ -934,10 +295,10 @@ header {
   width: 100%;
   height: 100%;
 
-  background-color: var(--accent-color-trasparent-2);
+  background-color: $accent-color-trasparent-2;
 
   transform: translateY(100%);
-  transition: transform var(--timing) var(--timing-function);
+  transition: transform $timing $timing-function;
 }
 
 .projects.list a:hover .overlay,
@@ -952,7 +313,7 @@ header {
   margin-left: 24px;
   margin-right: 24px;
 
-  color: var(--main-light-color);
+  color: $main-light-color;
 }
 
 .project-content h2 {
@@ -962,12 +323,12 @@ header {
   letter-spacing: 0.06em;
   margin-bottom: 4px;
 
-  color: var(--primary-text-color);
+  color: $primary-text-color;
 }
 
 .project-content p {
   font-size: 16px;
   line-height: 2;
 
-  color: var(--secondary-text-color);
+  color: $secondary-text-color;
 }
