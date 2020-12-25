@@ -943,7 +943,6 @@ h1, h2, h3, p {
   border: 1px solid #2196F3;
 }
 
-/* Модальное окно */
 .backdrop {
   position: fixed;
   top: 0px;
@@ -959,16 +958,6 @@ h1, h2, h3, p {
 .backdrop.is-hidden {
   pointer-events: none;
   opacity: 0;
-}
-
-.backdrop.is-hidden .modal {
-  -webkit-transform: translate(-50%, -50%) scale(0.5);
-          transform: translate(-50%, -50%) scale(0.5);
-  opacity: 0;
-  -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .modal {
@@ -988,14 +977,24 @@ h1, h2, h3, p {
           box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
 }
 
-.modal .header {
+.backdrop.is-hidden .modal {
+  -webkit-transform: translate(-50%, -50%) scale(0.5);
+          transform: translate(-50%, -50%) scale(0.5);
+  opacity: 0;
+  -webkit-transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1), -webkit-transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modal__header {
   margin-bottom: 12px;
   font-weight: 900;
   font-size: 20px;
   line-height: 1.15;
 }
 
-.modal .form-fields {
+.modal__form-fields {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1008,19 +1007,19 @@ h1, h2, h3, p {
   text-align: left;
 }
 
-.modal .form-fields .field-name {
+.modal__field-name {
   margin-bottom: 4px;
   font-size: 12px;
   line-height: 1.17;
   color: #757575;
 }
 
-.modal .input-field {
+.modal__input-field {
   position: relative;
   margin-bottom: 10px;
 }
 
-.modal .input-field .icon {
+.modal__input-icon {
   position: absolute;
   top: 50%;
   left: 12px;
@@ -1033,13 +1032,12 @@ h1, h2, h3, p {
   pointer-events: none;
 }
 
-.modal .input-field input:hover + .icon,
-.modal .input-field input:focus + .icon {
+.modal__input-text:hover + .modal__input-icon,
+.modal__input-text:focus + .modal__input-icon {
   fill: #2196F3;
 }
 
-.modal .form-fields input,
-.modal .form-fields textarea {
+.modal__input-text, .modal__input-comment {
   width: 100%;
   font-size: 14px;
   line-height: 1.14;
@@ -1051,32 +1049,28 @@ h1, h2, h3, p {
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), border 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.modal .form-fields input {
+.modal__input-text {
   height: 40px;
   padding: 12px 16px 12px 42px;
 }
 
-.modal .form-fields textarea {
+.modal__input-comment {
   height: 120px;
   padding: 12px 16px;
   resize: none;
 }
 
-.modal .form-fields input:hover,
-.modal .form-fields input:focus,
-.modal .form-fields input:focus-within,
-.modal .form-fields textarea:hover,
-.modal .form-fields textarea:focus {
+.modal__input-text:hover, .modal__input-text:focus, .modal__input-text:focus-within, .modal__input-comment:hover, .modal__input-comment:focus {
   border: 1px solid #2196F3;
   /* Удаляем стандартный аутлайн чтоб виден был свой в Chrome */
   outline: 0;
 }
 
-.modal .check {
+.check {
   margin-bottom: 30px;
 }
 
-.modal .check label {
+.check label {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1088,7 +1082,7 @@ h1, h2, h3, p {
           align-items: center;
 }
 
-.modal .check .svg-check {
+.check .svg-check {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
