@@ -1,7 +1,10 @@
 // Подключение Modern Normilize
 @import "./utils/modern-normalize";
 
-// Подключение переменных и шрифтов
+// Подключение шрифтов
+@import "./common/fonts";
+
+// Подключение переменных
 @import "./common/variables";
 
 // Общая стилизация
