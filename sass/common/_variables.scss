@@ -23,3 +23,7 @@ $backdrop-black-color: #00000033;
 $modal-close-button-border-color: #0000001A;
 $timing: 250ms;
 $timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+
+// Объявление шрифтов через SCSS переменные
+$logo-font: "Raleway";
+$text-font: "Roboto";
